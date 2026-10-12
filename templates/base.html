@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Grismy Shoppy{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="{{ url_for('inicio') }}"><span class="logo">🛒</span><span>Grismy <b>Shoppy</b></span></a>
+  <form class="search" action="{{ url_for('inicio') }}" method="get">
+    <select name="categoria" aria-label="Categoría"><option value="">Todos</option>{% for c in categorias|default([]) %}<option value="{{ c }}" {% if categoria|default('') == c %}selected{% endif %}>{{ c }}</option>{% endfor %}</select>
+    <input name="q" value="{{ busqueda|default('') }}" placeholder="Buscar en Grismy Shoppy..." aria-label="Buscar">
+    <button aria-label="Buscar">🔍</button>
+  </form>
+  <a class="cart-link" href="{{ url_for('ver_carrito') }}">🛒 Carrito <b>{{ cantidad_carrito }}</b></a>
+</header>
+<nav class="nav"><a href="{{ url_for('inicio') }}">☰ Todos los departamentos</a><a href="{{ url_for('inicio') }}">Ofertas del día</a><a href="{{ url_for('inicio') }}">Más vendidos</a><a href="{{ url_for('inicio') }}">Electrónicos</a><a href="{{ url_for('inicio') }}">Hogar y oficina</a><span>Tu tienda, a tu manera</span></nav>
+{% with mensajes = get_flashed_messages() %}{% if mensajes %}<div class="flash">{% for m in mensajes %}{{ m }}{% endfor %}</div>{% endif %}{% endwith %}
+<main>{% block content %}{% endblock %}</main>
+<footer>Grismy Shoppy · Proyecto escolar hecho con Python · Funciona localmente sin Internet</footer>
+</body></html>
