@@ -1,0 +1,3 @@
+{% extends "base.html" %}
+{% block title %}Pedido de prueba | Grismy Shoppy{% endblock %}
+{% block content %}<section class="empty confirmation"><div>✅</div><h1>¡Pedido de demostración completado!</h1><p>Simulaste un pedido de {{ cantidad }} producto(s), por ${{ "%.2f"|format(total) }} USD.</p><p>No se realizó ningún pago real.</p><a class="hero-btn" href="{{ url_for('inicio') }}">Volver a la tienda</a></section>{% endblock %}

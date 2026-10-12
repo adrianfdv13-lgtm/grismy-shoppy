@@ -1,0 +1,27 @@
+GRISMY SHOPPY - VERSION OFFLINE
+================================
+
+1. Descomprime esta carpeta en el Escritorio.
+2. Abre CMD.
+3. Ejecuta:
+   cd %USERPROFILE%\Desktop\Grismy_Shoppy_Offline
+4. Instala Flask una sola vez (necesita Internet solo durante esta instalación):
+   python -m pip install -r requirements.txt
+   Si "python" no funciona, usa la ruta completa de tu instalación de Python.
+5. Ejecuta:
+   python app.py
+6. Abre:
+   http://127.0.0.1:5000
+
+Después de instalar Flask, la tienda funciona sin Internet.
+No usa imágenes externas ni fuentes online; los dibujos de productos son emojis.
+
+PARA ABRIRLA EN OTROS DISPOSITIVOS SIN INTERNET:
+- Conecta la laptop y los otros dispositivos a la misma red Wi-Fi (el router puede no tener Internet).
+- En app.py cambia host="127.0.0.1" por host="0.0.0.0".
+- Ejecuta de nuevo python app.py.
+- En Windows, permite Python en la red privada si aparece el aviso del firewall.
+- Averigua la IP local de la laptop con ipconfig; desde el celular abre http://IP-DE-LA-LAPTOP:5000.
+Esto requiere una red local, aunque no tenga acceso a Internet.
+
+Este es un proyecto escolar. El pedido es simulado; no procesa pagos reales.
